@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Student Exam Performance Indicator</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+
+<body>
+    <div class="login">
+        <h1>Student Exam Performance Indicator</h1>
+
+        <form action="/predictdata" method="POST">
+            <fieldset>
+                <legend>Enter Student Details</legend>
+
+                <!-- Gender -->
+                <div class="mb-3">
+                    <label for="gender" class="form-label">Gender</label>
+                    <select class="form-control" name="gender" id="gender" required>
+                        <option selected disabled value="">Select Gender</option>
+                        <option value="male">Male</option>
+                        <option value="female">Female</option>
+                    </select>
+                </div>
+
+                <!-- Race or Ethnicity -->
+                <div class="mb-3">
+                    <label for="race_ethnicity" class="form-label">Race or Ethnicity</label>
+                    <select class="form-control" name="race_ethnicity" id="race_ethnicity" required>
+                        <option selected disabled value="">Select Ethnicity</option>
+                        <option value="group A">Group A</option>
+                        <option value="group B">Group B</option>
+                        <option value="group C">Group C</option>
+                        <option value="group D">Group D</option>
+                        <option value="group E">Group E</option>
+                    </select>
+                </div>
+
+                <!-- Parental Level of Education -->
+                <div class="mb-3">
+                    <label for="parental_level_of_education" class="form-label">Parental Level of Education</label>
+                    <select class="form-control" name="parental_level_of_education" id="parental_level_of_education"
+                        required>
+                        <option selected disabled value="">Select Education Level</option>
+                        <option value="associate's degree">Associate's degree</option>
+                        <option value="bachelor's degree">Bachelor's degree</option>
+                        <option value="high school">High school</option>
+                        <option value="master's degree">Master's degree</option>
+                        <option value="some college">Some college</option>
+                        <option value="some high school">Some high school</option>
+                    </select>
+                </div>
+
+                <!-- Lunch -->
+                <div class="mb-3">
+                    <label for="lunch" class="form-label">Lunch</label>
+                    <select class="form-control" name="lunch" id="lunch" required>
+                        <option selected disabled value="">Select Lunch Type</option>
+                        <option value="standard">Standard</option>
+                        <option value="free/reduced">Free/Reduced</option>
+                    </select>
+                </div>
+
+                <!-- Test Preparation Course -->
+                <div class="mb-3">
+                    <label class="form-label">Test Preparation Course</label>
+                    <select class="form-control" name="test_preparation_course" required>
+                        <option selected disabled value="">Select Preparation Status</option>
+                        <option value="none">None</option>
+                        <option value="completed">Completed</option>
+                    </select>            </div>
+                <!-- Reading Score -->
+                <div class="mb-3">
+                    <label for="reading_score" class="form-label">Reading Score</label>
+                    <input type="number" class="form-control" name="reading_score" id="reading_score" min="0" max="100"
+                        required />
+                </div>
+
+                <!-- Writing Score -->
+                <div class="mb-3">
+                    <label for="writing_score" class="form-label">Writing Score</label>
+                    <input type="number" class="form-control" name="writing_score" id="writing_score" min="0" max="100"
+                        required />
+                </div>
+
+                <!-- Submit -->
+                <div class="mb-3">
+                    <button type="submit" class="btn btn-primary">Predict Performance</button>
+                </div>
+            </fieldset>
+        </form>
+    </div>
+
+    <h2>
+        THe prediciton is {{results}}
+    </h2>
+</body>
+
+</html>
